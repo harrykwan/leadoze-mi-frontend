@@ -234,7 +234,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3 card-2" v-for="(item,ind) in all">
+                        <div class="col-md-3 card-2" v-for="(item,ind) in game">
                             <div class="card">
                                 <img class="card-img-top"
                                     :src="'http://13.213.40.21/proxyurl/' + item.image.split('/').join('|').split('?').join('!')"
@@ -321,7 +321,7 @@
                     game: game.done,
                     music: music.done,
                     tatoo: tatoo.done,
-                    insurance: insurance.done,
+                    insurance: insurance.done
                 }
             },
             mounted() {
@@ -330,13 +330,10 @@
             computed: {
                 resultnum: function () {
                     let tempcount = 0;
-                    for (var j in this.all) {
+                    for (var j in game.done) {
                         tempcount++
                     }
                     return tempcount
-                },
-                all: function () {
-                    return { ...this.game, ...this.music, ...this.tatoo, ...this.insurance }
                 }
             }
 
